@@ -39,3 +39,16 @@ Consult `AI_HANDOFF/publication_automation.md` and the new Sphinx guide.
 Before declaring the task complete, run pytest, strict Sphinx and the real
 LaTeX integration workflow, then link evidence in the PR. Never merge the
 upstream PR without explicit user approval.
+
+## Release and repository standards
+
+- MIT copyright text in `LICENSE` is authoritative; never change the license
+  holder, terms, or year without explicit maintainer authorization.
+- Keep `pyproject.toml`, `CITATION.cff`, `CHANGELOG.md`, and Sphinx URLs in
+  sync with the organization's canonical repository.
+- Preserve palette source attribution in `ATTRIBUTION.md`. Never assume
+  upstream font or palette licences are covered by AwesomeFigures' MIT text.
+- Run `python tools/check_release.py`; before publishing, build source and
+  wheel distributions and run `python tools/check_release.py --dist dist`.
+- Do not tag, upload to PyPI, or merge upstream without explicit approval.
+- Consult `AI_HANDOFF/release_readiness.md` for the current checklist.
