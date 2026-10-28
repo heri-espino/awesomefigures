@@ -17,10 +17,22 @@ The official organization repository is managed separately.
 
 ## Stale branch removal
 
-A one-time guarded GitHub Actions cleanup checks the expected remote SHA
-for each stale branch before deleting it. A branch that changed in the
-meantime is **not** deleted. The cleanup workflow is removed from main
-after verification.
+A one-time guarded GitHub Actions cleanup checked each remote branch against
+its audited commit SHA before deleting it. The cleanup **correctly refused**
+to remove the concurrently updated release-readiness branch.
+
+Verified removed:
+- `feature/automatic-publication-workflow`
+- `feature/conda-environment-awesomefigures-20261022`
+- `refactor/awesomefigures-package`
+- `refactor/rename-awesomefigures`
+
+**Still active:** `feature/release-readiness-standards`. Its SHA changed
+multiple times while cleanup was running and it contains unique release
+documentation and standards work. It was deliberately preserved for a
+separate review/merge and subsequent branch deletion. On this date the fork
+therefore has two branches, not one. The temporary cleanup workflow was
+removed after it successfully deleted the four stale branches.
 
 Expected refs prior to cleanup:
 
