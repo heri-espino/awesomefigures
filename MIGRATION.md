@@ -15,4 +15,6 @@ python -m pip uninstall -y contrastcolors
 python -m pip install -e .
 ```
 
-The previous import name `contrastcolors` is no longer installed by this repository. Previously generated notebook outputs and published demonstration PDFs may still contain the old branding until rebuilt. The GitHub repository remains `heri-espino/Colors` and GitHub Pages URLs are unchanged for now. No PyPI upload or repository rename is performed in this change.
+The previous import name `contrastcolors` is no longer installed by this repository. Previously generated notebook outputs and published demonstration PDFs may still contain the old branding until rebuilt. The canonical GitHub repository is now `awesomefigures/awesomefigures`.
+Some older documentation links may still use the legacy Pages host until
+its deployment is migrated. The package rename itself does not publish to PyPI.

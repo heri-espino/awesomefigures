@@ -43,7 +43,7 @@ html_theme_options = {
     "icon_links": [
         {
             "name": "GitHub",
-            "url": "https://github.com/heri-espino/Colors",
+            "url": "https://github.com/awesomefigures/awesomefigures",
             "icon": "fa-brands fa-github",
         }
     ],

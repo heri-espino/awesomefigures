@@ -1,0 +1,53 @@
+name: Bug report
+description: Report a reproducible AwesomeFigures defect (not a security vulnerability)
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing a bug. Do not include secrets, private manuscripts,
+        or undisclosed security vulnerabilities. See SECURITY.md for confidential reports.
+  - type: input
+    id: version
+    attributes:
+      label: AwesomeFigures version or commit
+      description: Include the installed version and Git commit if using an editable checkout.
+      placeholder: "0.1.0 / git SHA"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Python, Matplotlib, OS, and TeX engine when relevant.
+      placeholder: "Python 3.12, Matplotlib 3.x, Windows 11, MiKTeX"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Share minimal executable code and non-sensitive test data.
+      render: python
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behavior and sanitized traceback
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched for duplicates and excluded credentials/private files.
+          required: true

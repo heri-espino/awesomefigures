@@ -348,5 +348,6 @@ Explore next
    mathematics
    color_spaces
    limitations
+   project
    examples
    api

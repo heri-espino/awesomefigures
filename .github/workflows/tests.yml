@@ -21,7 +21,9 @@ jobs:
       - run: node tools/test_studio_smoke.js
       # Validate the artifact users actually install, not just the editable tree.
       - run: python -m pip install build twine
+      - run: python tools/check_release.py
       - run: python -m build
+      - run: python tools/check_release.py --dist dist
       - run: python -m twine check dist/*
       - run: python -m pip uninstall -y awesomefigures
       - run: python -m pip install --no-deps dist/awesomefigures-*.whl

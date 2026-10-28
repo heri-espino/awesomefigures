@@ -25,6 +25,19 @@ and [deterministic batch example](examples/automatic_publication/).
 This API never reruns statistical experiments.
 
 
+## Project information
+
+**License:** [MIT](LICENSE) · **Citation:** [CITATION.cff](CITATION.cff) ·
+**Contributing:** [CONTRIBUTING.md](CONTRIBUTING.md) ·
+**Security:** [SECURITY.md](SECURITY.md) ·
+**Support:** [SUPPORT.md](SUPPORT.md) ·
+**Changelog:** [CHANGELOG.md](CHANGELOG.md) ·
+**Releases:** [RELEASING.md](RELEASING.md) ·
+**Third-party palette provenance:** [ATTRIBUTION.md](ATTRIBUTION.md).
+
+This repository is the canonical AwesomeFigures source. The declared
+package version does not necessarily indicate a published PyPI release.
+
 **Distribution:** `awesomefigures` · **Python import:** `import awesomefigures as af`
 
 ```python
@@ -53,13 +66,14 @@ python -c "import awesomefigures as af; print(af.__version__)"
 For another library or project before a PyPI release:
 
 ```bash
-python -m pip install "awesomefigures @ git+https://github.com/heri-espino/Colors.git@main"
+python -m pip install "awesomefigures @ git+https://github.com/awesomefigures/awesomefigures.git@main"
 ```
 
 For reproducible use, replace `main` with a pinned release tag or immutable
-commit. The GitHub repository name and Pages
-URLs currently remain `Colors`; Python package and distribution names
-are `awesomefigures`. Uploading to PyPI is a separate release step.
+commit. The canonical repository is `awesomefigures/awesomefigures`; the Python
+package is `awesomefigures`. The previous Pages URL is a legacy link until
+an organization-hosted Sphinx site is deployed. PyPI publication is a
+separate, manually authorized release step.
 
 
 **Implementation catalogue:** [Complete feature inventory](FEATURES.md)
@@ -107,7 +121,7 @@ Seven exact categorical sets: Okabe–Ito, Paul Tol Bright, High Contrast and
 Muted, Tableau 10, ColorBrewer Set2 and Dark2. The original Matplotlib
 colormaps viridis, cividis, plasma, magma, inferno and RdBu are also named
 built-ins. See the [visual palette atlas](docs/source/named_palettes.rst) and
-[Palette Studio](https://heri-espino.github.io/Colors/studio.html).
+[Palette Studio (legacy hosted URL)](https://heri-espino.github.io/Colors/studio.html).
 These schemes are useful starting points, not certifications of universal
 accessibility.
 
@@ -134,7 +148,7 @@ fig.savefig("elegant.pdf")
 This finishes axes automatically at rendering. Fine-tune tick counts,
 padding, zero inclusion and the minimum marker distance using
 `af.apply_elegant_axes(ax, target_xticks=6, marker_inset_pt=4)`.
-See the rendered [Styles guide](https://heri-espino.github.io/Colors/style.html)
+See the rendered [Styles guide (legacy hosted URL)](https://heri-espino.github.io/Colors/style.html)
 for comparisons and technical limitations.
 
 ## Conda environment (Windows, macOS, and Linux)
@@ -148,8 +162,8 @@ notebook extras from `pyproject.toml`.
 From the **repository root** (important for the relative editable install):
 
 ```bash
-git clone https://github.com/heri-espino/Colors.git
-cd Colors
+git clone https://github.com/awesomefigures/awesomefigures.git
+cd awesomefigures
 conda env create -f environment.yml
 conda activate awesomefigures
 python -m pip check
@@ -173,9 +187,9 @@ jupyter lab
 
 **Using AwesomeFigures in a different Conda project:** activate that project's
 environment and install this checkout with
-`python -m pip install -e /path/to/Colors`. Alternatively, install a
+`python -m pip install -e /path/to/awesomefigures`. Alternatively, install a
 pinned Git commit with
-`python -m pip install "awesomefigures @ git+https://github.com/heri-espino/Colors.git@<commit-sha>"`.
+`python -m pip install "awesomefigures @ git+https://github.com/awesomefigures/awesomefigures.git@<commit-sha>"`.
 This does not require changing the other project's Conda environment name.
 When distributing another library, declare `awesomefigures` as a dependency
 after it has been published to PyPI.
@@ -193,8 +207,8 @@ Install [Miniforge](https://github.com/conda-forge/miniforge) or Miniconda,
 clone the repository, and open an initialized Conda PowerShell:
 
 ~~~powershell
-git clone https://github.com/heri-espino/Colors.git
-cd Colors
+git clone https://github.com/awesomefigures/awesomefigures.git
+cd awesomefigures
 Set-ExecutionPolicy -Scope Process Bypass
 .\tools\setup_and_run.ps1
 ~~~
