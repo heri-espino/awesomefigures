@@ -1,4 +1,4 @@
-# One-time repository maintenance: remove verified stale fork branches.
+# One-time repository maintenance: remove remaining confirmed stale refactor branches.
 # DELETE THIS WORKFLOW after confirming it succeeded. Do not leave a
 # destructive branch cleanup workflow in the long-lived main branch.
 name: one-time audited stale branch cleanup
@@ -46,9 +46,6 @@ jobs:
             echo "Removing validated, merged/stale ref: ${name} @ ${actual}"
             git push --force-with-lease="refs/heads/${name}:${expected}" origin --delete "${name}"
           done <<'BRANCHES'
-          feature/automatic-publication-workflow|7f7552d2df6fc6cf2904c5587e81cd4362caffc7
-          feature/conda-environment-awesomefigures-20261022|8bd231fe4a6658626101be48ba4a581f658593a2
-          feature/release-readiness-standards|a9760351c1f72ccf7a1a2ef2ff14136d6e280d88
           refactor/awesomefigures-package|baab2267c8134994b4dff4fb804ad3c9ed57f19e
           refactor/rename-awesomefigures|cc01f34d07e00e68e9e155186b0022008c272aaf
           BRANCHES
