@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: >-
+  If you use AwesomeFigures in research, please cite this software.
+type: software
+title: AwesomeFigures
+abstract: >-
+  Python tools for accessible scientific visualization, publication-oriented
+  Matplotlib styling, and document-aware LaTeX figure export.
+authors:
+  - family-names: Espino Montelongo
+    given-names: Heriberto
+repository-code: https://github.com/awesomefigures/awesomefigures
+license: MIT
+version: 0.1.0
+keywords:
+  - scientific visualization
+  - Matplotlib
+  - LaTeX
+  - accessible palettes
+  - publication figures
