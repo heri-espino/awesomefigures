@@ -1,0 +1,55 @@
+# One-time repository maintenance: remove verified stale fork branches.
+# DELETE THIS WORKFLOW after confirming it succeeded. Do not leave a
+# destructive branch cleanup workflow in the long-lived main branch.
+name: one-time audited stale branch cleanup
+
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/one-time-prune-branches.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  prune:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout the canonical main branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Verify repository identity and remove unchanged stale refs
+        shell: bash
+        env:
+          EXPECTED_REPO: heri-espino/awesomefigures
+        run: |
+          set -euo pipefail
+          [[ "${GITHUB_REPOSITORY}" == "${EXPECTED_REPO}" ]] || {
+            echo "Refusing to run against an unexpected repository"; exit 1;
+          }
+          [[ "${GITHUB_REF_NAME}" == "main" ]] || {
+            echo "Refusing to run off main"; exit 1;
+          }
+          while IFS='|' read -r name expected; do
+            [[ -n "${name}" ]] || continue
+            actual="$(git ls-remote --heads origin "refs/heads/${name}" | awk '{print $1}')"
+            if [[ -z "${actual}" ]]; then
+              echo "Already removed: ${name}"
+              continue
+            fi
+            if [[ "${actual}" != "${expected}" ]]; then
+              echo "::error::Branch ${name} moved to ${actual}; refusing to delete"
+              exit 1
+            fi
+            echo "Removing validated, merged/stale ref: ${name} @ ${actual}"
+            git push --force-with-lease="refs/heads/${name}:${expected}" origin --delete "${name}"
+          done <<'BRANCHES'
+          feature/automatic-publication-workflow|7f7552d2df6fc6cf2904c5587e81cd4362caffc7
+          feature/conda-environment-awesomefigures-20261022|8bd231fe4a6658626101be48ba4a581f658593a2
+          feature/release-readiness-standards|a9760351c1f72ccf7a1a2ef2ff14136d6e280d88
+          refactor/awesomefigures-package|baab2267c8134994b4dff4fb804ad3c9ed57f19e
+          refactor/rename-awesomefigures|cc01f34d07e00e68e9e155186b0022008c272aaf
+          BRANCHES
+          echo "All selected stale refs were processed; main was preserved."
