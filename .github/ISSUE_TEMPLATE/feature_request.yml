@@ -1,0 +1,26 @@
+name: Feature request
+description: Propose an improvement to plots, palettes, publication integration or the API
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Scientific or publication problem
+      description: Explain the workflow limitation before proposing an implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed public API or behavior
+      description: Include a small usage example if helpful.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and compatibility concerns
+      description: State whether existing APIs, figures, or TeX environments must remain supported.
+    validations:
+      required: false
