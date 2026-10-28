@@ -30,8 +30,8 @@ Verified removed:
 **Still active:** `feature/release-readiness-standards`. Its SHA changed
 multiple times while cleanup was running and it contains unique release
 documentation and standards work. It was deliberately preserved for a
-separate review/merge and subsequent branch deletion. On this date the fork
-therefore has two branches, not one. The temporary cleanup workflow was
+separate review/merge and subsequent branch deletion. The fork may still have more than one branch while other contributors
+are actively developing or reviewing new work. The temporary cleanup workflow was
 removed after it successfully deleted the four stale branches.
 
 Expected refs prior to cleanup:
@@ -47,3 +47,11 @@ Retain only `main` between tasks.
 
 Do not force-push or rewrite `main`. Do not delete unmerged work whose
 remote branch tip has changed since the audit.
+
+## Concurrent work notice
+
+After the verified cleanup, another branch `review/upstream-main-20261028`
+was created, in addition to `feature/release-readiness-standards`.
+Neither was deleted because they may be in use by another contributor.
+Maintain `main` as the only **long-lived** branch; merge and remove these
+temporary branches once their reviews and work are complete.
