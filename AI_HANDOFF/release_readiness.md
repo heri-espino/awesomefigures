@@ -35,3 +35,18 @@ safety files, plus source/sdist/wheel metadata validation.
    settings; never publish sensitive security details.
 4. Do not merge upstream without authorization; do not publish a package
    solely because its packaging checks pass.
+
+## Verified checks (October 28, 2026)
+
+At commit `5756a3e7b9691d58a27543673c5afde885f71cc5`, all three PR
+workflows passed:
+
+- [Python 3.10/3.12 tests, sdist/wheel builds and release metadata checks](https://github.com/heri-espino/awesomefigures/actions/runs/40758918049) — PASS.
+- [Strict Sphinx documentation build](https://github.com/heri-espino/awesomefigures/actions/runs/40758918020) — PASS.
+- [Actual TeX Live PDF font/width integration](https://github.com/heri-espino/awesomefigures/actions/runs/40758918136) — PASS.
+
+The release-readiness scripts validate that source distributions retain
+legal/community files and wheels retain the MIT license metadata. These checks
+verify packaging integrity, not legal advice, a PyPI publication, or final
+journal visual quality. Upstream PR creation through the GitHub integration is
+still blocked by 403; the fork PR is a review staging point.
